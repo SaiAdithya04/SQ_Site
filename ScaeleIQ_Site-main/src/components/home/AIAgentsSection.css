@@ -1,0 +1,538 @@
+/* =============================================================
+   ORBITAL AGENT SECTION — OAS
+   Premium enterprise AI orchestration visualization
+   SVG Stage: 1200 x 720  |  Orb center: (600, 360)
+   ============================================================= */
+
+.oas-section {
+  padding: 6.5rem 0 8rem;
+  background: linear-gradient(180deg, #F8FAFC 0%, #F4F8FD 40%, #EEF4FB 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Section Header ─────────────────────────────────────────── */
+.oas-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.oas-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.05rem;
+  background: rgba(6, 182, 212, 0.07);
+  border: 1px solid rgba(6, 182, 212, 0.24);
+  border-radius: 99px;
+  margin-bottom: 1.25rem;
+}
+
+.oas-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #06B6D4;
+  box-shadow: 0 0 6px rgba(6, 182, 212, 0.7);
+  flex-shrink: 0;
+}
+
+.oas-eyebrow span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0891B2;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.oas-title {
+  font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+}
+
+.oas-subtitle {
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* =============================================================
+   Stage — 1200px x 720px radial orchestration canvas
+   ============================================================= */
+
+.oas-stage {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  height: 720px;
+  margin: 0 auto;
+}
+
+/* ── SVG Connector Lines ──────────────────────────────────── */
+.oas-connectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.oas-connector {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-width 0.25s ease;
+}
+
+.oas-connector--in {
+  animation: connectorDraw 1.1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.oas-connector--pipeline      { animation-delay: 0.3s; }
+.oas-connector--semantic      { animation-delay: 0.4s; }
+.oas-connector--integration   { animation-delay: 0.5s; }
+.oas-connector--observability { animation-delay: 0.6s; }
+.oas-connector--governance    { animation-delay: 0.7s; }
+.oas-connector--legacy        { animation-delay: 0.8s; }
+
+@keyframes connectorDraw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* =============================================================
+   Central Orb Cell
+   Centered exactly at (600, 360) in the 1200x720 stage
+   ============================================================= */
+
+.oas-orb-cell {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  cursor: pointer;
+  pointer-events: none; /* Children activate pointer events so surrounding connectors aren't blocked */
+
+  opacity: 0;
+  transition: opacity 0.8s ease 0.1s;
+}
+
+.oas-orb-cell--in {
+  opacity: 1;
+}
+
+.oas-orb-wrap {
+  position: relative;
+  width: 390px;
+  height: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  pointer-events: auto; /* Central circle receives hover */
+}
+
+/* Atmospheric outer halo */
+.oas-orb-ambient-halo {
+  position: absolute;
+  inset: -100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(6, 182, 212, 0.16) 0%,
+    rgba(124, 58, 237, 0.12) 28%,
+    rgba(16, 185, 129, 0.10) 45%,
+    rgba(225, 29, 72, 0.10) 62%,
+    transparent 80%
+  );
+  filter: blur(52px);
+  pointer-events: none;
+  animation: orbAmbientPulse 7s ease-in-out infinite alternate;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.oas-orb-ambient-halo--active {
+  opacity: 1.25 !important;
+  transform: scale(1.14);
+  filter: blur(42px);
+}
+
+@keyframes orbAmbientPulse {
+  0%   { transform: scale(1);    opacity: 0.8; }
+  100% { transform: scale(1.10); opacity: 1;   }
+}
+
+/* Six chromatic light fields */
+.oas-chroma-fields {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.oas-chroma-field {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.75;
+  transition: opacity 0.38s ease, transform 0.38s ease, filter 0.38s ease;
+}
+
+.oas-chroma-field--top-left    { left: 4%; top: 4%; }
+.oas-chroma-field--top-right   { right: 4%; top: 4%; }
+.oas-chroma-field--mid-left    { left: -36px; top: 50%; transform: translateY(-50%); width: 210px; height: 210px; }
+.oas-chroma-field--mid-right   { right: -36px; top: 50%; transform: translateY(-50%); width: 210px; height: 210px; }
+.oas-chroma-field--bot-left    { left: 4%; bottom: 4%; }
+.oas-chroma-field--bot-right   { right: 4%; bottom: 4%; }
+
+.oas-chroma-field--active {
+  opacity: 1 !important;
+  transform: scale(1.4) !important;
+  filter: blur(24px) !important;
+}
+
+.oas-chroma-field--mid-left.oas-chroma-field--active  { transform: translateY(-50%) scale(1.4) !important; }
+.oas-chroma-field--mid-right.oas-chroma-field--active { transform: translateY(-50%) scale(1.4) !important; }
+
+/* Glass orbit rings */
+.oas-orb-ring--outer {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  border: 1px dashed rgba(6, 182, 212, 0.22);
+  pointer-events: none;
+  animation: orbRingRotate 90s linear infinite;
+}
+
+.oas-orb-ring--inner {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.14);
+  pointer-events: none;
+}
+
+@keyframes orbRingRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* OGL WebGL canvas */
+.oas-orb-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+/* Glass sphere content overlay */
+.oas-orb-content {
+  position: absolute;
+  inset: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.4rem 1.6rem;
+  background: radial-gradient(
+    ellipse at 40% 32%,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.93) 48%,
+    rgba(248, 252, 255, 0.80) 72%,
+    rgba(240, 248, 255, 0.20) 90%,
+    transparent 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 1),
+    inset 0 0 45px rgba(255, 255, 255, 0.88),
+    0 0 60px rgba(6, 182, 212, 0.14),
+    0 10px 40px rgba(6, 182, 212, 0.08);
+  transition: box-shadow 0.4s ease;
+}
+
+.oas-orb-content--active {
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 1),
+    inset 0 0 55px rgba(255, 255, 255, 0.92),
+    0 0 80px rgba(6, 182, 212, 0.22),
+    0 12px 50px rgba(6, 182, 212, 0.14);
+}
+
+/* Premium AI icon badge */
+.oas-orb-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #06B6D4 0%, #6366F1 55%, #0891B2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  position: relative;
+  box-shadow:
+    0 6px 24px rgba(6, 182, 212, 0.5),
+    0 2px 10px rgba(99, 102, 241, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  margin-bottom: 0.6rem;
+}
+
+.oas-chip-icon {
+  color: #FFFFFF;
+}
+
+.oas-orb-title {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.22;
+  margin: 0;
+  letter-spacing: -0.022em;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.9);
+}
+
+.oas-orb-tag {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #0891B2;
+  margin: 0.3rem 0 0;
+}
+
+.oas-orb-divider {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.45), transparent);
+  margin: 0.5rem auto;
+  flex-shrink: 0;
+}
+
+.oas-orb-desc {
+  font-size: 0.775rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 268px;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.85);
+}
+
+.oas-orb-desc strong {
+  color: #0F172A;
+  font-weight: 700;
+}
+
+/* =============================================================
+   Six Agent Cards — Radial Spatial Positioning
+   Cards positioned around the 1200x720 stage
+   ============================================================= */
+
+.oas-card {
+  position: absolute;
+  z-index: 4;
+  width: 320px;
+  height: 160px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 18px;
+  padding: 1.1rem 1.2rem;
+  box-shadow:
+    0 4px 20px -2px rgba(15, 23, 42, 0.07),
+    0 2px 8px -1px rgba(15, 23, 42, 0.04);
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.oas-card--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.oas-card--faded {
+  opacity: 0.35 !important;
+}
+
+.oas-card:hover,
+.oas-card--hovered {
+  transform: translateY(-5px);
+  border-color: rgba(var(--agent-rgb), 0.5);
+  box-shadow:
+    0 16px 40px -4px rgba(15, 23, 42, 0.14),
+    0 4px 12px -2px rgba(15, 23, 42, 0.06),
+    0 0 24px -2px rgba(var(--agent-rgb), 0.32);
+  background: rgba(255, 255, 255, 0.99);
+}
+
+/* Radial card positions — middle cards pushed outward for increased distance */
+.oas-card--top-left  { left: 80px;  top: 20px;  }
+.oas-card--top-right { right: 80px; top: 20px;  }
+.oas-card--mid-left  { left: -30px; top: 290px; }
+.oas-card--mid-right { right: -30px; top: 290px; }
+.oas-card--bot-left  { left: 80px;  top: 540px; }
+.oas-card--bot-right { right: 80px; top: 540px; }
+
+/* Card icon wrap */
+.oas-card__icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.oas-card:hover .oas-card__icon-wrap,
+.oas-card--hovered .oas-card__icon-wrap {
+  transform: scale(1.08);
+}
+
+/* Card body */
+.oas-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.oas-card__role {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.oas-card__title {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.3;
+  margin: 0 0 0.22rem 0;
+}
+
+.oas-card__desc {
+  font-size: 0.77rem;
+  color: #64748B;
+  line-height: 1.48;
+  margin: 0;
+}
+
+/* Dock dot — single connection point at card inner edge, centered vertically.
+   Width 12px with right/left -6px places center of dot exactly at the card border. */
+.oas-card__dock-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 5;
+}
+
+.oas-card--top-left .oas-card__dock-dot,
+.oas-card--mid-left .oas-card__dock-dot,
+.oas-card--bot-left .oas-card__dock-dot {
+  right: -6px;
+}
+
+.oas-card--top-right .oas-card__dock-dot,
+.oas-card--mid-right .oas-card__dock-dot,
+.oas-card--bot-right .oas-card__dock-dot {
+  left: -6px;
+}
+
+/* =============================================================
+   Responsive Design
+   ============================================================= */
+
+@media (max-width: 1220px) and (min-width: 1041px) {
+  .oas-stage {
+    transform: scale(0.91);
+    transform-origin: top center;
+    margin-bottom: -52px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .oas-stage {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .oas-connectors {
+    display: none;
+  }
+
+  .oas-orb-cell {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+    pointer-events: auto;
+  }
+
+  .oas-card {
+    position: static;
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+  }
+
+  .oas-card--top-left,
+  .oas-card--mid-left,
+  .oas-card--bot-left,
+  .oas-card--top-right,
+  .oas-card--mid-right,
+  .oas-card--bot-right {
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .oas-card__dock-dot {
+    display: none;
+  }
+}

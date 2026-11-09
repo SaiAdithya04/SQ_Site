@@ -1,0 +1,2656 @@
+/* ============================================================
+   SOLUTIONS SHOWCASE — PREMIUM PRODUCT SHOWCASE
+   ScaleIQ light theme: white bg, cyan/teal accent, dark navy text
+   REBUILT: Full-scale enterprise product sections
+   ============================================================ */
+
+.solutions-showcase {
+  background-color: var(--bg-primary, #FFFFFF);
+  padding: 0 0 0 0;
+  overflow: hidden;
+}
+
+/* ============================================================
+   SOLUTIONS QUICK-JUMP NAVIGATION BAR
+   ============================================================ */
+.solutions-quick-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 0.85rem 0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s ease;
+}
+
+.solutions-quick-nav-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.solutions-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.solutions-nav-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #94A3B8;
+  transition: all 0.25s ease;
+}
+
+.solutions-nav-pill:hover {
+  background: #FFFFFF;
+  border-color: rgba(0, 180, 216, 0.5);
+  color: #007791;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.08);
+}
+
+.solutions-nav-pill:hover .solutions-nav-pill-dot {
+  background: #00B4D8;
+}
+
+.solutions-nav-pill--active {
+  background: #FFFFFF;
+  border-color: #00B4D8;
+  color: #007791;
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.16);
+}
+
+.solutions-nav-pill--active .solutions-nav-pill-dot {
+  background: #00B4D8;
+  box-shadow: 0 0 8px #00B4D8;
+}
+
+/* ============================================================
+   SOLUTION SECTION — FULL-SCALE PRODUCT SHOWCASE
+   ============================================================ */
+.solution-section {
+  padding: clamp(5rem, 8vw, 8rem) 0;
+  border-bottom: 1px solid var(--border-subtle, #EAEAEA);
+  position: relative;
+  scroll-margin-top: 130px;
+  min-height: 750px;
+  display: flex;
+  align-items: center;
+}
+
+.solution-section:last-child {
+  border-bottom: none;
+}
+
+.solution-section:nth-child(even) {
+  background: linear-gradient(180deg, #FAFBFC 0%, #FFFFFF 100%);
+}
+
+.solution-section-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: 0.45fr 0.55fr;
+  align-items: center;
+  gap: clamp(3rem, 5vw, 6rem);
+}
+
+.solution-section--reverse .solution-grid {
+  grid-template-columns: 0.55fr 0.45fr;
+  grid-template-areas: "visual text";
+}
+
+.solution-section--reverse .solution-content {
+  grid-area: text;
+}
+
+.solution-section--reverse .solution-visual-wrapper {
+  grid-area: visual;
+}
+
+/* ============================================================
+   TEXT CONTENT — PREMIUM TYPOGRAPHY
+   ============================================================ */
+.solution-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.solution-category {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, #00B4D8);
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.solution-category::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent, #00B4D8);
+  box-shadow: 0 0 8px rgba(0, 180, 216, 0.6);
+}
+
+/* DOMINANT SOLUTION NAME */
+.solution-title {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: clamp(3rem, 5vw, 4.75rem);
+  font-weight: 800;
+  color: var(--text-primary, #0A0D14);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+/* LARGE SUBTITLE */
+.solution-subtitle {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+  color: var(--text-secondary, #525866);
+  line-height: 1.35;
+  margin-bottom: 1.75rem;
+  white-space: pre-line;
+}
+
+/* BODY DESCRIPTION */
+.solution-description {
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--text-secondary, #525866);
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+}
+
+/* ============================================================
+   FEATURE POINTS — 2-COLUMN GRID
+   ============================================================ */
+.solution-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2.5rem;
+  margin-bottom: 2.75rem;
+  width: 100%;
+}
+
+.solution-point-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary, #0A0D14);
+}
+
+.solution-point-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: rgba(0, 180, 216, 0.12);
+  color: var(--accent, #00B4D8);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CTA BUTTON — LARGE AND PROMINENT
+   ============================================================ */
+.solution-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 2.25rem;
+  background-color: var(--accent, #00B4D8);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: var(--radius-md, 10px);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.3);
+  margin-bottom: 3rem;
+}
+
+.solution-cta:hover {
+  background-color: #0096B4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 180, 216, 0.4);
+  color: #FFFFFF;
+}
+
+.solution-cta-icon {
+  transition: transform 0.25s ease;
+}
+
+.solution-cta:hover .solution-cta-icon {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   METRICS BAR — BOTTOM OF CONTENT COLUMN
+   ============================================================ */
+.solution-metrics-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-top: 1px solid var(--border-subtle, #E2E4E9);
+  padding-top: 2rem;
+  width: 100%;
+}
+
+.solution-metric-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--border-subtle, #E2E4E9);
+}
+
+.solution-metric-item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.solution-metric-value {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 800;
+  color: var(--text-primary, #0A0D14);
+  letter-spacing: -0.02em;
+}
+
+.solution-metric-label {
+  font-size: 0.78rem;
+  color: var(--text-muted, #868C98);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   VISUALIZATION WRAPPER — LARGE CONTAINER
+   ============================================================ */
+.solution-visual-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  background: linear-gradient(145deg, #F8FAFC 0%, #F1F5F9 100%);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 24px;
+  padding: clamp(1.75rem, 2.5vw, 2.5rem);
+  box-shadow:
+    0 20px 60px -16px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ============================================================
+   VISUAL 1: DIRECT FLOW — ENTERPRISE DATA MIGRATION
+   Matches Reference: Sources → Staging Layer (AWS/Azure/GCP) → Targets
+   + Pipeline Capabilities strip
+   ============================================================ */
+.visual-direct-flow-v2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.df-flow-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.df-col {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.df-col--sources {
+  width: 146px;
+  flex-shrink: 0;
+}
+
+.df-col--staging {
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.df-col--targets {
+  width: 146px;
+  flex-shrink: 0;
+}
+
+.df-col-header {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+}
+
+.df-col-header--center {
+  text-align: center;
+}
+
+.df-col-header--right {
+  text-align: right;
+}
+
+.df-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 220px;
+  justify-content: center;
+}
+
+/* ── HEADERS ROW above flow canvas ──────────────────────────────────────────
+   Mirrors df-flow-canvas layout so each header sits above its column.
+   ─────────────────────────────────────────────────────── */
+.df-flow-headers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.df-col-header-cell {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  white-space: nowrap;
+}
+
+/* Column 1 (sources) and column 3 (targets) have fixed widths matching df-col--sources/targets */
+.df-col-header-cell:first-child {
+  width: 146px;
+  flex-shrink: 0;
+}
+
+.df-col-header-cell:last-child {
+  width: 146px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.df-col-header-cell--center {
+  text-align: center;
+  flex: 1;
+}
+
+.df-col-header-cell--right {
+  text-align: right;
+}
+
+/* Connector spacer in headers row — matches connector box flex:1 min-width */
+.df-connector-header-gap {
+  flex: 1;
+  min-width: 60px;
+  max-width: 100px;
+}
+
+/* ── FULL-SIZE LOGO in source and target cards (no badge box wrapper) ── */
+.df-card-logo {
+  max-height: 30px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.df-card-logo--oracle {
+  transform: scale(2.6);
+  max-height: 28px;
+}
+
+.df-card-logo--sql-server {
+  transform: scale(1.35);
+  max-height: 34px;
+}
+
+/* ── STAGING card: logo only, fills the card, no label ── */
+.df-staging-logo-only {
+  max-height: 36px;
+  max-width: 90%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Staging card: center logo directly since there's no label */
+.df-staging-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.df-cards-stack--targets {
+  gap: 24px;
+}
+
+
+.df-source-card-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* center logo since no text label */
+  gap: 0;
+  padding: 0.45rem 0.5rem;
+  height: 44px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.df-target-card-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0.45rem 0.5rem;
+  height: 44px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.df-source-card-v2:hover,
+.df-source-card-v2--active,
+.df-target-card-v2:hover {
+  border-color: rgba(0, 180, 216, 0.5);
+  transform: translateX(2px);
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.12);
+}
+
+.df-card-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.df-badge--sap {
+  background: #0070F3;
+}
+
+.df-badge--tera {
+  background: #F59E0B;
+}
+
+.df-badge--oracle {
+  background: #EF4444;
+}
+
+.df-badge--sql {
+  background: #B91C1C;
+}
+
+.df-badge--snow {
+  background: #00C2CB;
+}
+
+.df-badge--dbr {
+  background: #FF3621;
+}
+
+/* Logo image badges — real PNG logos in source/target cards */
+.df-logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 3px;
+  overflow: hidden;
+}
+
+.df-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Staging cloud logo images */
+.df-staging-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 28px;
+}
+
+.df-staging-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Target platform card — logo only, larger */
+.df-target-logo-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.df-target-logo-img {
+  height: 36px;
+  max-width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.df-target-card-v2--active {
+  border-color: rgba(0, 180, 216, 0.5);
+  transform: translateX(-2px);
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.12);
+}
+
+/* SAP logo badge */
+.sap-logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 3px;
+  overflow: hidden;
+}
+
+.sap-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* SAP modern platform target logo */
+.sap-target-logo-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.sap-target-logo-img {
+  height: 36px;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+}
+
+.df-card-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1E293B;
+  white-space: nowrap;
+}
+
+/* Staging Box */
+.df-staging-box-v2 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #CBD5E1;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  backdrop-filter: blur(8px);
+}
+
+.df-staging-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 56px;
+  height: 66px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.df-staging-card--azure {
+  border-color: #0078D4;
+  background: #F8FCFF;
+}
+
+.df-staging-card:hover,
+.df-staging-card--active {
+  border-color: var(--accent, #00B4D8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.18);
+}
+
+.df-cloud-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+}
+
+.df-cloud-logo--aws {
+  gap: 1px;
+}
+
+.df-aws-word {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #232F3E;
+  line-height: 1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.df-staging-card-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+/* Connectors */
+.df-connector-box {
+  flex: 1;
+  min-width: 60px;
+  max-width: 100px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.df-connector-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.df-flow-path {
+  fill: none;
+  stroke: rgba(0, 194, 203, 0.45);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.df-flow-node {
+  fill: #00C2CB;
+  filter: drop-shadow(0 0 3px rgba(0, 194, 203, 0.8));
+}
+
+/* Pipeline Capabilities Strip */
+.df-pipeline-capabilities {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.df-capabilities-header {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.df-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.df-cap-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.df-cap-card:hover {
+  border-color: rgba(0, 180, 216, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.08);
+}
+
+.df-cap-icon-wrap {
+  color: var(--accent, #00B4D8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.df-cap-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #334155;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   VISUAL 2: GOVERN360 — RADIAL GOVERNANCE ARCHITECTURE
+   Matches Reference: Central Govern360 Hub + 6 Outer Pillars + Metrics
+   ============================================================ */
+.visual-govern360 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+/* Primary Container (inside box removed, seamless integration) */
+.gov-radial-card {
+  width: 100%;
+  max-width: 640px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Central Radial Stage (540 x 380 coordinate space, scaled up) */
+.gov-radial-stage {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 540 / 380;
+  margin: 0 auto;
+}
+
+.gov-svg-connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Concentric rings matching reference */
+.gov-ring {
+  fill: none;
+  transition: opacity 0.3s ease;
+}
+
+.gov-ring--inner {
+  stroke: rgba(0, 180, 216, 0.18);
+  stroke-width: 1;
+}
+
+.gov-ring--middle {
+  stroke: rgba(0, 180, 216, 0.28);
+  stroke-width: 1;
+  stroke-dasharray: 4, 4;
+}
+
+.gov-ring--outer {
+  stroke: rgba(0, 180, 216, 0.16);
+  stroke-width: 1;
+  stroke-dasharray: 6, 6;
+}
+
+/* Radar ticks radiating from concentric circles */
+.gov-radar-tick {
+  stroke: rgba(0, 180, 216, 0.22);
+  stroke-width: 1;
+  stroke-dasharray: 2, 4;
+}
+
+/* Radial Spoke Lines */
+.gov-spoke-path {
+  stroke: rgba(0, 180, 216, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 6, 5;
+  fill: none;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease, stroke-dasharray 0.3s ease;
+}
+
+.gov-spoke-path--active {
+  stroke: #00B4D8;
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+
+/* Central Govern360 Hub Node (Scaled up) */
+.gov-center-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid rgba(0, 180, 216, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  z-index: 5;
+  box-shadow: 0 10px 28px rgba(0, 180, 216, 0.14), inset 0 0 16px rgba(0, 180, 216, 0.04);
+}
+
+.gov-center-shield-badge {
+  color: #00B4D8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.gov-center-shield-icon {
+  stroke-width: 2.2;
+}
+
+.gov-center-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #64748B;
+  text-transform: uppercase;
+}
+
+.gov-center-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0A0D14;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.gov-center-brand {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.gov-center-aura {
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 180, 216, 0.18);
+  animation: govCenterPulse 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes govCenterPulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+/* 6 Outer Pillar Floating Nodes (Scaled up) */
+.gov-node-button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.38rem;
+  z-index: 6;
+  outline: none;
+}
+
+.gov-node-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0284C7;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+.gov-node-circle--active,
+.gov-node-button:hover .gov-node-circle {
+  border-color: #00B4D8;
+  background: #F0F9FF;
+  color: #0284C7;
+  transform: scale(1.08);
+  box-shadow: 0 6px 22px rgba(0, 180, 216, 0.22);
+}
+
+.gov-node-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1E293B;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.gov-node-label--active,
+.gov-node-button:hover .gov-node-label {
+  color: #0284C7;
+}
+
+/* Interactive Pillar Contextual Strip */
+.gov-active-detail-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 580px;
+  background: rgba(240, 249, 255, 0.75);
+  border: 1px solid rgba(0, 180, 216, 0.22);
+  border-radius: 12px;
+  padding: 0.6rem 0.95rem;
+  margin-top: 0.5rem;
+  font-size: 0.76rem;
+  animation: govFadeIn 0.3s ease;
+}
+
+@keyframes govFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gov-active-badge-tag {
+  background: #0284C7;
+  color: #FFFFFF;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.22rem 0.55rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.gov-active-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gov-active-summary-title {
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+.gov-active-summary-desc {
+  color: #475569;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bottom Metrics Bar (Matches Reference Image) */
+.gov-bottom-metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 620px;
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  text-align: center;
+}
+
+.gov-metric-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.gov-metric-number {
+  font-size: 1.38rem;
+  font-weight: 800;
+  color: #0284C7;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.gov-metric-caption {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748B;
+  line-height: 1.25;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .gov-radial-card {
+    padding: 1.25rem 0.75rem 1rem;
+    border-radius: 18px;
+  }
+
+  .gov-center-node {
+    width: 96px;
+    height: 96px;
+  }
+
+  .gov-center-title {
+    font-size: 0.72rem;
+  }
+
+  .gov-center-tag {
+    font-size: 0.52rem;
+  }
+
+  .gov-center-brand {
+    font-size: 0.48rem;
+  }
+
+  .gov-node-circle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .gov-node-label {
+    font-size: 0.65rem;
+  }
+
+  .gov-active-detail-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .gov-active-summary-desc {
+    white-space: normal;
+  }
+
+  .gov-bottom-metrics-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 0.5rem;
+  }
+
+  .gov-metric-number {
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================================================
+   VISUAL 3: SEMANTIQ — 3-STAGE ENTERPRISE ARCHITECTURE
+   Matches Reference:
+   LEFT: Raw Schemas | CENTER: SemantIQ Agent | RIGHT: Semantic Graph
+   BOTTOM: Downstream Integrations
+   ============================================================ */
+.visual-semantiq-v2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  gap: 0.85rem;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+/* 3-Column Header Titles matching reference */
+.sem-stage-headers {
+  display: grid;
+  grid-template-columns: 26% 40% 34%;
+  gap: 0;
+  width: 100%;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.sem-stage-header-cell {
+  display: flex;
+  align-items: center;
+}
+
+.sem-stage-header-cell--center {
+  justify-content: center;
+}
+
+.sem-stage-header-cell--right {
+  justify-content: flex-end;
+}
+
+.sem-stage-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  text-transform: uppercase;
+}
+
+/* Main 3-Column Architecture Canvas Stage */
+.sem-canvas-stage {
+  display: grid;
+  grid-template-columns: 26% 40% 34%;
+  align-items: stretch;
+  width: 100%;
+  min-height: 400px;
+  position: relative;
+  gap: 1.5%;
+}
+
+/* SVG Connection Overlay */
+.sem-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.sem-flow-curve {
+  fill: none;
+  stroke: rgba(0, 180, 216, 0.42);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.sem-flow-curve--active {
+  stroke: #00B4D8;
+  stroke-width: 2.2;
+  stroke-dasharray: 6 3;
+}
+
+.sem-branch-path {
+  transition: stroke-opacity 0.3s ease, stroke-width 0.3s ease;
+}
+
+.sem-rel-path {
+  transition: stroke-opacity 0.3s ease, stroke-width 0.3s ease;
+}
+
+/* Left Column: 4 Raw Schema Cards */
+.sem-col-schemas {
+  width: 100%;
+  padding: 1.25rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.sem-raw-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.sem-schema-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 0.45rem 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.sem-schema-card--active,
+.sem-schema-card:hover {
+  border-color: #00B4D8;
+  transform: translateX(2px);
+  box-shadow: 0 6px 18px rgba(0, 180, 216, 0.16);
+}
+
+.sem-schema-icon-wrap {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #E0F2FE;
+  border: 1px solid rgba(0, 180, 216, 0.3);
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sem-schema-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.sem-schema-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0F172A;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  word-break: break-all;
+  white-space: normal;
+}
+
+.sem-schema-source {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #64748B;
+  white-space: nowrap;
+}
+
+.sem-schema-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.sem-schema-tag {
+  background: #E0F2FE;
+  color: #0284C7;
+  font-size: 0.52rem;
+  font-weight: 700;
+  padding: 0.16rem 0.3rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sem-schema-more {
+  color: #94A3B8;
+}
+
+.sem-schema-port {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #00B4D8;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 6px #00B4D8;
+}
+
+/* Center Column: SEMANTIQ AGENT (Layered Hexagon + Capabilities) */
+.sem-col-agent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0.75rem;
+  z-index: 2;
+  position: relative;
+}
+
+.sem-agent-caps-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.sem-cap-pill {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  padding: 0.35rem 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #1E293B;
+  white-space: nowrap;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.sem-cap-pill:hover {
+  border-color: #00B4D8;
+  color: #0284C7;
+}
+
+/* Removed floating capability pill connections per user request */
+
+.sem-cap-icon {
+  color: #00B4D8;
+  flex-shrink: 0;
+}
+
+/* Central Layered Hexagon Structure */
+.sem-agent-hexagon-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  aspect-ratio: 260 / 220;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.6rem auto;
+}
+
+.sem-hex-background-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.sem-agent-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1px;
+}
+
+.sem-agent-3d-logo {
+  width: 72px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 2px;
+  filter: drop-shadow(0 6px 14px rgba(0, 180, 216, 0.25));
+  transition: transform 0.3s ease;
+}
+
+.sem-agent-3d-logo:hover {
+  transform: scale(1.05);
+}
+
+.sem-agent-brand-title {
+  font-size: 0.74rem;
+  font-weight: 1000;
+  letter-spacing: 0.06em;
+  color: #0284C7;
+  line-height: 1.1;
+}
+
+.sem-agent-brand-sub {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-top: 1px;
+}
+
+.sem-agent-brand-caption {
+  font-size: 0.63rem;
+  font-weight: 600;
+  color: #00B4D8;
+  margin-top: 1px;
+  letter-spacing: 0.02em;
+}
+
+.sem-agent-port {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00B4D8;
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 0 10px #00B4D8;
+  z-index: 4;
+}
+
+.sem-agent-port--left {
+  left: 1px;
+}
+
+.sem-agent-port--right {
+  right: 1px;
+}
+
+/* Right Column: Governed Semantic Graph */
+.sem-col-graph {
+  width: 100%;
+  padding: 1.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  gap: 1.25rem;
+}
+
+/* Primary entity column: Customer, Order, Product */
+.sem-graph-primary-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.1rem;
+  flex: 1;
+}
+
+/* Secondary entity column: Revenue, Fulfillment */
+.sem-graph-secondary-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+/* Unified entity node (replaces sem-node-circle for both primary and secondary) */
+.sem-entity-node {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid var(--ent-color, #2563EB);
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.14);
+  color: var(--ent-color, #2563EB);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.sem-entity-node--secondary {
+  width: 60px;
+  height: 60px;
+}
+
+.sem-entity-node--hover,
+.sem-entity-node:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 28px rgba(37, 99, 235, 0.35);
+}
+
+.sem-entity-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1;
+}
+
+/* Bottom: Downstream Integrations Strip */
+.sem-downstream-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.25rem 0.5rem 0.25rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.sem-downstream-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64748B;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sem-downstream-cards {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sem-downstream-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 0.4rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.sem-downstream-card:hover {
+  border-color: #00B4D8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.15);
+}
+
+.sem-int-svg {
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .sem-canvas-stage {
+    overflow-x: auto;
+    min-width: 860px;
+    padding-bottom: 0.5rem;
+  }
+
+  .sem-stage-headers {
+    min-width: 860px;
+  }
+}
+
+/* ============================================================
+   VISUAL 4: CHARLIE — AI COPILOT CONVERSATION
+   ============================================================ */
+.visual-charlie {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 0;
+}
+
+/* Charlie Conversation Panel */
+.charlie-conversation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+/* User Question Bubble */
+.charlie-user-bubble {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.charlie-user-msg {
+  background: rgba(0, 180, 216, 0.08);
+  border: 1px solid rgba(0, 180, 216, 0.2);
+  border-radius: 16px 16px 4px 16px;
+  padding: 0.85rem 1.15rem;
+  max-width: 85%;
+}
+
+.charlie-user-msg p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary, #0A0D14);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Charlie Response Steps */
+.charlie-response-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.charlie-step {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #525866);
+}
+
+.charlie-step-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.charlie-step-icon--done {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+.charlie-step-icon--loading {
+  background: rgba(0, 180, 216, 0.12);
+  color: #00B4D8;
+  animation: charlieSpinStep 1.5s linear infinite;
+}
+
+@keyframes charlieSpinStep {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.charlie-step-text {
+  font-weight: 600;
+}
+
+.charlie-step-text--italic {
+  font-style: italic;
+  color: #94A3B8;
+}
+
+/* SQL Code Block */
+.charlie-sql-block {
+  background: #0F172A;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0.35rem 0;
+}
+
+.charlie-sql-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.charlie-sql-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.charlie-sql-dot--red {
+  background: #FF5F56;
+}
+
+.charlie-sql-dot--yellow {
+  background: #FFBD2E;
+}
+
+.charlie-sql-dot--green {
+  background: #27C93F;
+}
+
+.charlie-sql-label {
+  font-size: 0.68rem;
+  color: #64748B;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.charlie-sql-body {
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+
+.charlie-sql-body code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: #E2E8F0;
+  white-space: pre;
+}
+
+.charlie-sql-keyword {
+  color: #818CF8;
+}
+
+.charlie-sql-string {
+  color: #34D399;
+}
+
+.charlie-sql-func {
+  color: #F9A825;
+}
+
+/* Charlie Answer Box */
+.charlie-answer-box {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(16, 185, 129, 0.3);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.charlie-answer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.charlie-answer-content {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.charlie-answer-text {
+  flex: 1;
+}
+
+.charlie-answer-region {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary, #0A0D14);
+  margin-bottom: 0.15rem;
+}
+
+.charlie-answer-val {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #007791;
+  letter-spacing: -0.02em;
+}
+
+.charlie-answer-desc {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  margin-top: 0.15rem;
+}
+
+/* Mini Bar Chart */
+.charlie-mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 48px;
+}
+
+.charlie-chart-bar {
+  width: 8px;
+  border-radius: 3px 3px 0 0;
+  background: rgba(0, 180, 216, 0.25);
+  transition: all 0.3s ease;
+}
+
+.charlie-chart-bar--active {
+  background: var(--accent, #00B4D8);
+}
+
+/* Charlie Metrics */
+.charlie-metrics-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #E2E8F0;
+  justify-content: space-between;
+}
+
+.charlie-metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.charlie-metric-val {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #007791;
+}
+
+.charlie-metric-lbl {
+  font-size: 0.62rem;
+  color: #94A3B8;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ============================================================
+   VISUAL 5: SAP CONNECT â€” ENTERPRISE SAP INTEGRATION
+   Matches Reference: SAP Systems â†’ SAP Connect Center â†’ Modern Platforms
+   + SAP Modules strip
+   ============================================================ */
+.visual-sap-connect-v2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.sap-flow-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.sap-col {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.sap-col--systems {
+  width: 146px;
+  flex-shrink: 0;
+}
+
+.sap-col--center {
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.sap-col--platforms {
+  width: 146px;
+  flex-shrink: 0;
+}
+
+.sap-col-header {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+}
+
+.sap-col-header--right {
+  text-align: right;
+}
+
+.sap-cards-stack {
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  justify-content: center;
+}
+
+.sap-cards-stack--systems {
+  gap: 20px;
+}
+
+.sap-cards-stack--platforms {
+  gap: 14px;
+}
+
+.sap-system-card-v2,
+.sap-platform-card-v2 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.8rem;
+  height: 44px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.sap-system-card-v2:hover,
+.sap-system-card-v2--active,
+.sap-platform-card-v2:hover,
+.sap-platform-card-v2--active {
+  border-color: rgba(0, 180, 216, 0.5);
+  transform: translateX(2px);
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.12);
+}
+
+.sap-card-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.sap-badge--blue { background: #0070F3; }
+.sap-badge--snow { background: #00C2CB; }
+.sap-badge--dbr { background: #FF3621; }
+.sap-badge--bq { background: #1A73E8; }
+.sap-badge--lake { background: #10B981; }
+
+.sap-card-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1E293B;
+  white-space: nowrap;
+}
+
+/* SAP Connect Center Card */
+.sap-connect-center-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.6rem;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(0, 194, 203, 0.45);
+  border-radius: 20px;
+  box-shadow:
+    0 10px 30px rgba(0, 194, 203, 0.12),
+    0 0 0 1px rgba(0, 194, 203, 0.1);
+  transition: all 0.3s ease;
+  animation: sapCenterBreathe 4s ease-in-out infinite alternate;
+}
+
+@keyframes sapCenterBreathe {
+  0% {
+    box-shadow: 0 8px 24px rgba(0, 194, 203, 0.1);
+    border-color: rgba(0, 194, 203, 0.4);
+  }
+  100% {
+    box-shadow: 0 14px 40px rgba(0, 194, 203, 0.24);
+    border-color: rgba(0, 194, 203, 0.75);
+  }
+}
+
+.sap-center-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 194, 203, 0.1);
+  border: 1.5px solid rgba(0, 194, 203, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent, #00B4D8);
+  margin-bottom: 0.5rem;
+}
+
+.sap-center-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 0.25rem;
+}
+
+.sap-center-subtitle {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #64748B;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Connectors (SAP) */
+.sap-connector-box {
+  flex: 1;
+  min-width: 60px;
+  max-width: 100px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sap-connector-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sap-flow-path {
+  fill: none;
+  stroke: rgba(0, 194, 203, 0.45);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.sap-flow-path--s4 {
+  stroke: #00C2CB;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(0, 194, 203, 0.6));
+}
+
+.sap-flow-node {
+  fill: #00C2CB;
+  filter: drop-shadow(0 0 3px rgba(0, 194, 203, 0.8));
+}
+
+.sap-flow-node--s4 {
+  fill: #00E5FF;
+  r: 3;
+  filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.9));
+}
+
+/* SAP Modules Section */
+.sap-modules-section {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.sap-modules-header {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.sap-modules-grid {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.sap-module-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.85rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.sap-module-card:hover {
+  border-color: rgba(0, 180, 216, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.08);
+}
+
+.sap-module-icon-wrap {
+  color: var(--accent, #00B4D8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sap-module-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   VISUAL 6: HUB360 — CENTRALIZED COMMAND CENTER
+   ============================================================ */
+.visual-hub360 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+}
+
+/* Top Stats Row */
+.hub-top-stats {
+  display: flex;
+  gap: 1rem;
+}
+
+.hub-stat-card {
+  flex: 1;
+  padding: 1rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hub-stat-value {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-primary, #0A0D14);
+  letter-spacing: -0.02em;
+}
+
+.hub-stat-change {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #10B981;
+}
+
+.hub-stat-label {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.hub-stat-health {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hub-stat-health-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  animation: hubHealthBlink 2s ease-in-out infinite;
+}
+
+@keyframes hubHealthBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Cloud Regions */
+.hub-regions-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.hub-region-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hub-region-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 14px 14px 0 0;
+}
+
+.hub-region-card--aws::before {
+  background: linear-gradient(90deg, #FF9900, #FFC300);
+}
+
+.hub-region-card--azure::before {
+  background: linear-gradient(90deg, #0078D4, #50A3F0);
+}
+
+.hub-region-card--gcp::before {
+  background: linear-gradient(90deg, #4285F4, #34A853);
+}
+
+.hub-region-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-primary, #0A0D14);
+}
+
+.hub-region-provider {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.hub-region-uptime {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #10B981;
+}
+
+/* Pipeline Activity (animated bars) */
+.hub-pipeline-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 32px;
+  margin-top: 0.25rem;
+}
+
+.hub-pipeline-bar {
+  width: 4px;
+  border-radius: 2px 2px 0 0;
+  background: rgba(0, 180, 216, 0.3);
+  animation: hubBarPulse 1.8s ease-in-out infinite;
+}
+
+.hub-pipeline-bar:nth-child(1) {
+  height: 60%;
+  animation-delay: 0s;
+}
+
+.hub-pipeline-bar:nth-child(2) {
+  height: 80%;
+  animation-delay: 0.15s;
+}
+
+.hub-pipeline-bar:nth-child(3) {
+  height: 45%;
+  animation-delay: 0.3s;
+}
+
+.hub-pipeline-bar:nth-child(4) {
+  height: 90%;
+  animation-delay: 0.45s;
+}
+
+.hub-pipeline-bar:nth-child(5) {
+  height: 65%;
+  animation-delay: 0.6s;
+}
+
+.hub-pipeline-bar:nth-child(6) {
+  height: 75%;
+  animation-delay: 0.75s;
+}
+
+.hub-pipeline-bar:nth-child(7) {
+  height: 50%;
+  animation-delay: 0.9s;
+}
+
+.hub-pipeline-bar:nth-child(8) {
+  height: 85%;
+  animation-delay: 1.05s;
+}
+
+@keyframes hubBarPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scaleY(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    background: var(--accent, #00B4D8);
+  }
+}
+
+/* Bottom Controls Row */
+.hub-controls-row {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid #E2E8F0;
+  justify-content: space-between;
+}
+
+.hub-control-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.hub-control-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+}
+
+.hub-control-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #64748B;
+  text-align: center;
+}
+
+/* Hub Bottom Metrics */
+.hub-metrics-row {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #E2E8F0;
+  justify-content: space-between;
+}
+
+.hub-metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.hub-metric-val {
+  font-family: var(--font-display, 'Radix', sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #007791;
+}
+
+.hub-metric-lbl {
+  font-size: 0.6rem;
+  color: #94A3B8;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  .solution-grid,
+  .solution-section--reverse .solution-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+    gap: 3rem;
+  }
+
+  .solution-section--reverse .solution-content,
+  .solution-section--reverse .solution-visual-wrapper {
+    grid-area: auto;
+  }
+
+  .solution-section {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .solution-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .solution-visual-wrapper {
+    min-height: 480px;
+    order: 2;
+  }
+
+  .solution-content {
+    order: 1;
+  }
+
+  .df-architecture,
+  .sap-architecture {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .df-arrow-col,
+  .sap-arrow-col {
+    width: 100%;
+    height: 40px;
+    align-self: auto;
+  }
+
+  .df-arrow-line,
+  .sap-arrow-line {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hub-regions-row {
+    grid-template-columns: 1fr;
+  }
+
+  .gov-radial-container {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 992px) {
+  .df-capabilities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sap-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .solution-section {
+    padding: 3rem 0;
+  }
+
+  .solution-points {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .solution-metrics-bar {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .solution-metric-item {
+    border-right: none;
+    padding-right: 0;
+    flex-basis: calc(50% - 0.5rem);
+  }
+
+  .solution-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .visual-direct-flow-v2,
+  .visual-sap-connect-v2,
+  .visual-semantiq-v2 {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .df-flow-canvas,
+  .sap-flow-canvas,
+  .sem-canvas-stage {
+    min-width: 500px;
+  }
+
+  .df-pipeline-capabilities,
+  .sap-modules-section {
+    min-width: 500px;
+  }
+
+  .df-capabilities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sap-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .df-arrow-particle,
+  .sap-arrow-particle,
+  .gov-connection-pulse,
+  .sem-wire-pulse,
+  .hub-pipeline-bar,
+  .hub-stat-health-dot,
+  .charlie-step-icon--loading {
+    animation: none !important;
+  }
+}
+/* SemantIQ Final Polish */
+.visual-semantiq-v2 {
+  width: 110% !important;
+  margin-left: -5% !important; /* widen entire container */
+}
+
+.visual-semantiq-v2 .sem-schema-item,
+.visual-semantiq-v2 .sem-entity-item,
+.visual-semantiq-v2 .sem-capability-item {
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.visual-semantiq-v2 .sem-agent-hexagon {
+  transform: scale(1.2) !important;
+  margin-left: 20px;
+}
+
+.visual-semantiq-v2 .sem-agent-hexagon .sem-agent-core h4 {
+  white-space: nowrap;
+}
